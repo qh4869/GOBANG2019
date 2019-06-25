@@ -39,58 +39,58 @@ int cManager::GetAtPlayerColor()
 
 void cManager::ModeChoice()
 {
-	system("cls");//ÃüÁîĞĞÇåÆÁ
+	system("cls");//å‘½ä»¤è¡Œæ¸…å±
 	int ModeInput;
 	char c;//cin.sync() and fflush(stdin) do not work with Visual Studio 2015
-	//ÊäÈëÓÎÏ·Ä£Ê½
-	cout << "ÓÎÏ·Ä£Ê½Ñ¡Ôñ£º1Íæ¼Ò¶ÔµçÄÔ£¬2Íæ¼Ò¶ÔÍæ¼Ò" << endl;
-	cout << "ÇëÊäÈëÄúµÄÑ¡Ôñ:";
+	//è¾“å…¥æ¸¸æˆæ¨¡å¼
+	cout << "æ¸¸æˆæ¨¡å¼é€‰æ‹©ï¼š1ç©å®¶å¯¹ç”µè„‘ï¼Œ2ç©å®¶å¯¹ç©å®¶" << endl;
+	cout << "è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©:";
 	while (!(cin >> ModeInput))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:";
 		do {
 			c = getchar();
 		} while (c != '\n');
-		cin.clear();//Çå³ı±êÖ¾Î»
+		cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 	}
 	while (ModeInput != PLAYERVSAI && ModeInput != PLAYERVSPLAYER)
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:";
 		while (!(cin >> ModeInput))
 		{
-			cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:";
 			do {
 				c = getchar();
 			} while (c != '\n');
-			cin.clear();//Çå³ı±êÖ¾Î»
+			cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 		}
 	}
 	GameMode = ModeInput;
 
-	//ÊäÈëÍæ¼ÒµÄÆå×ÓÑÕÉ«
+	//è¾“å…¥ç©å®¶çš„æ£‹å­é¢œè‰²
 	if (GameMode == PLAYERVSAI)
-		cout << endl << "Íæ¼ÒÆå×ÓÑ¡Ôñ£º1ºÚÉ«£¬2°×É«" << endl;
+		cout << endl << "ç©å®¶æ£‹å­é€‰æ‹©ï¼š1é»‘è‰²ï¼Œ2ç™½è‰²" << endl;
 	else
-		cout << endl << "Íæ¼Ò1Æå×ÓÑ¡Ôñ£º1ºÚÉ«£¬2°×É«" << endl;
-	cout << "ÇëÊäÈëÄúµÄÑ¡Ôñ:";
+		cout << endl << "ç©å®¶1æ£‹å­é€‰æ‹©ï¼š1é»‘è‰²ï¼Œ2ç™½è‰²" << endl;
+	cout << "è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©:";
 	while (!(cin >> ModeInput))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:";
 		do {
 			c = getchar();
 		} while (c != '\n');
-		cin.clear();//Çå³ı±êÖ¾Î»
+		cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 	}
 	while (ModeInput != BLACK && ModeInput != WHITE)
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:";
 		while (!(cin >> ModeInput))
 		{
-			cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:";
 			do {
 				c = getchar();
 			} while (c != '\n');
-			cin.clear();//Çå³ı±êÖ¾Î»
+			cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 		}
 	}
 	PlayerColor = ModeInput;
@@ -100,64 +100,64 @@ void cManager::ModeChoice()
 		WhoNext = 2;
 
 	char temp[4];
-	cin.getline(temp, 3);//Ö®Ç°µÄÊäÈëÔÚ»º³åÇøÀïÁôÏÂÁËÒ»¸ö»Ø³µ£¬ËùÒÔÕâÀïÍ£²»ÏÂÀ´
+	cin.getline(temp, 3);//ä¹‹å‰çš„è¾“å…¥åœ¨ç¼“å†²åŒºé‡Œç•™ä¸‹äº†ä¸€ä¸ªå›è½¦ï¼Œæ‰€ä»¥è¿™é‡Œåœä¸ä¸‹æ¥
 }
 
-//²ÃÅĞº¯Êı¿¼ÂÇ½ûÊÖ
-//·µ»ØÖµ£º1 BLACKÊ¤²»½ûÊÖ 2 WHITEÊ¤²»½ûÊÖ 3 FORBIDDENºÚÉ«½ûÊÖ°×É«Ê¤ 0ÎŞÈËÊ¤
-//ÓĞ¹Ø½ûÊÖ¿´ÎÄ¼ş¼ĞµÄÍ¼Æ¬
+//è£åˆ¤å‡½æ•°è€ƒè™‘ç¦æ‰‹
+//è¿”å›å€¼ï¼š1 BLACKèƒœä¸ç¦æ‰‹ 2 WHITEèƒœä¸ç¦æ‰‹ 3 FORBIDDENé»‘è‰²ç¦æ‰‹ç™½è‰²èƒœ 0æ— äººèƒœ
+//æœ‰å…³ç¦æ‰‹çœ‹æ–‡ä»¶å¤¹çš„å›¾ç‰‡
 int cManager::referee(cBoard oBoard, const int x, const int y)
 {
-	int result = 0;//²ÃÅĞ½á¹û
-	//--------------------------------------°×ÆåÅĞ¶Ï£¨Ã»ÓĞ½ûÊÖ£©-------------------------------
+	int result = 0;//è£åˆ¤ç»“æœ
+	//--------------------------------------ç™½æ£‹åˆ¤æ–­ï¼ˆæ²¡æœ‰ç¦æ‰‹ï¼‰-------------------------------
 	if (oBoard.GetAtTable(x, y) == WHITE)
 	{
-		int FirstSame[8];//ÏàÁ¬Í¬É«Æå×Ó¸öÊı£¬
-		int FirstEmpty[8];//Á½²à¿Õ°×¸öÊı
+		int FirstSame[8];//ç›¸è¿åŒè‰²æ£‹å­ä¸ªæ•°ï¼Œ
+		int FirstEmpty[8];//ä¸¤ä¾§ç©ºç™½ä¸ªæ•°
 		int i;
-		//¸³³õÖµ
+		//èµ‹åˆå€¼
 		for (i = 0; i < 8; i++)
 		{
 			FirstSame[i] = 0;
 			FirstEmpty[i] = 0;
 		}
 		int xNow, yNow;
-		//ÏòÉÏËÑË÷
+		//å‘ä¸Šæœç´¢
 		for (xNow = x - 1; xNow >= 0 && oBoard.GetAtTable(xNow, y) == WHITE; xNow--, FirstSame[0]++);
-		//ÓÒÉÏËÑË÷
+		//å³ä¸Šæœç´¢
 		for (xNow = x - 1, yNow = y + 1; xNow >= 0 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == WHITE; xNow--, yNow++, FirstSame[1]++);
-		//ÏòÓÒËÑË÷
+		//å‘å³æœç´¢
 		for (yNow = y + 1; yNow <= 14 && oBoard.GetAtTable(x, yNow) == WHITE; yNow++, FirstSame[2]++);
-		//ÏòÓÒÏÂËÑË÷
+		//å‘å³ä¸‹æœç´¢
 		for (xNow = x + 1, yNow = y + 1; xNow <= 14 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == WHITE; xNow++, yNow++, FirstSame[3]++);
-		//ÏòÏÂËÑË÷
+		//å‘ä¸‹æœç´¢
 		for (xNow = x + 1; xNow <= 14 && oBoard.GetAtTable(xNow, y) == WHITE; xNow++, FirstSame[4]++);
-		//Ïò×óÏÂËÑË÷
+		//å‘å·¦ä¸‹æœç´¢
 		for (xNow = x + 1, yNow = y - 1; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == WHITE; xNow++, yNow--, FirstSame[5]++);
-		//Ïò×óËÑË÷
+		//å‘å·¦æœç´¢
 		for (yNow = y - 1; yNow >= 0 && oBoard.GetAtTable(x, yNow) == WHITE; yNow--, FirstSame[6]++);
-		//×óÉÏËÑË÷
+		//å·¦ä¸Šæœç´¢
 		for (xNow = x - 1, yNow = y - 1; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == WHITE; xNow--, yNow--, FirstSame[7]++);
 
 		for (i = 0; i < 4; i++)
 		{
-			if (FirstSame[i] + FirstSame[i + 4] >= 4)//Îå¸öÒÔÉÏÏàÁ¬
+			if (FirstSame[i] + FirstSame[i + 4] >= 4)//äº”ä¸ªä»¥ä¸Šç›¸è¿
 				result = WHITE;
 		}
 	}
-	//---------------------------ºÚÆåÅĞ¶Ï£¨ÓĞ½ûÊÖ£¬²Î¿¼ÍøÉÏµİ¹éËã·¨£©------------------------------------------
+	//---------------------------é»‘æ£‹åˆ¤æ–­ï¼ˆæœ‰ç¦æ‰‹ï¼Œå‚è€ƒç½‘ä¸Šé€’å½’ç®—æ³•ï¼‰------------------------------------------
 	else
 	{
-		//ÏÂÃæÕâĞ©ĞèÒªÍ³¼ÆµÄ±äÁ¿£¬ÔÚ½ûÊÖÅĞ¶ÏÖĞÈ«²¿¶¼ÓÃµÃµ½
-		int FirstSame[8];//ÏàÁ¬Í¬É«Æå×Ó¸öÊı£¬
-		int FirstEmpty[8];//Á½²à¿Õ°×¸öÊı
-		int SecondSame[8];//¿Õ°×Ö®ºóÍ¬É«Æå×Ó¸öÊı,ºÚ
-		int SecondDiff[8];//¿Õ°×Ö®ºóÒìÉ«Æå×Ó¸öÊı,°×
-		int SecondEmpty[8];//ºÚÆå+¿Õ°×+ºÚÆå Ö®ºóµÄ¿Õ°×¸öÊı
-		int ThirdSame[8];//ºÚÆå+¿Õ°×+ºÚÆå+¿Õ°× Ö®ºóºÚÆåµÄ¸öÊı
+		//ä¸‹é¢è¿™äº›éœ€è¦ç»Ÿè®¡çš„å˜é‡ï¼Œåœ¨ç¦æ‰‹åˆ¤æ–­ä¸­å…¨éƒ¨éƒ½ç”¨å¾—åˆ°
+		int FirstSame[8];//ç›¸è¿åŒè‰²æ£‹å­ä¸ªæ•°ï¼Œ
+		int FirstEmpty[8];//ä¸¤ä¾§ç©ºç™½ä¸ªæ•°
+		int SecondSame[8];//ç©ºç™½ä¹‹ååŒè‰²æ£‹å­ä¸ªæ•°,é»‘
+		int SecondDiff[8];//ç©ºç™½ä¹‹åå¼‚è‰²æ£‹å­ä¸ªæ•°,ç™½
+		int SecondEmpty[8];//é»‘æ£‹+ç©ºç™½+é»‘æ£‹ ä¹‹åçš„ç©ºç™½ä¸ªæ•°
+		int ThirdSame[8];//é»‘æ£‹+ç©ºç™½+é»‘æ£‹+ç©ºç™½ ä¹‹åé»‘æ£‹çš„ä¸ªæ•°
 
 		int i;
-		//¸³³õÖµ
+		//èµ‹åˆå€¼
 		for (i = 0; i < 8; i++)
 		{
 			FirstSame[i] = 0;
@@ -170,7 +170,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 
 		int xNow, yNow;
 		int temp_x, temp_y;
-		//ÏòÉÏËÑË÷
+		//å‘ä¸Šæœç´¢
 		for (xNow = x - 1; xNow >= 0 && oBoard.GetAtTable(xNow, y) == BLACK; xNow--, FirstSame[0]++);
 		for (; xNow >= 0 && oBoard.GetAtTable(xNow, y) == EMPTY; xNow--, FirstEmpty[0]++);
 		temp_x = xNow;
@@ -180,7 +180,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; xNow >= 0 && oBoard.GetAtTable(xNow, y) == BLACK; xNow--, ThirdSame[0]++);
 
 
-		//ÓÒÉÏËÑË÷
+		//å³ä¸Šæœç´¢
 		for (xNow = x - 1, yNow = y + 1; xNow >= 0 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow--, yNow++, FirstSame[1]++);
 		for (; xNow >= 0 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow--, yNow++, FirstEmpty[1]++);
 		temp_x = xNow;
@@ -191,7 +191,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; xNow >= 0 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow--, yNow++, ThirdSame[1]++);
 
 
-		//ÏòÓÒËÑË÷
+		//å‘å³æœç´¢
 		for (yNow = y + 1; yNow <= 14 && oBoard.GetAtTable(x, yNow) == BLACK; yNow++, FirstSame[2]++);
 		for (; yNow <= 14 && oBoard.GetAtTable(x, yNow) == EMPTY; yNow++, FirstEmpty[2]++);
 		temp_y = yNow;
@@ -201,7 +201,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; yNow <= 14 && oBoard.GetAtTable(x, yNow) == BLACK; yNow++, ThirdSame[2]++);
 
 
-		//ÏòÓÒÏÂËÑË÷
+		//å‘å³ä¸‹æœç´¢
 		for (xNow = x + 1, yNow = y + 1; xNow <= 14 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow++, yNow++, FirstSame[3]++);
 		for (; xNow <= 14 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow++, yNow++, FirstEmpty[3]++);
 		temp_x = xNow;
@@ -212,7 +212,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; xNow <= 14 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow++, yNow++, ThirdSame[3]++);
 
 
-		//ÏòÏÂËÑË÷
+		//å‘ä¸‹æœç´¢
 		for (xNow = x + 1; xNow <= 14 && oBoard.GetAtTable(xNow, y) == BLACK; xNow++, FirstSame[4]++);
 		for (; xNow <= 14 && oBoard.GetAtTable(xNow, y) == EMPTY; xNow++, FirstEmpty[4]++);
 		temp_x = xNow;
@@ -222,7 +222,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; xNow <= 14 && oBoard.GetAtTable(xNow, y) == BLACK; xNow++, ThirdSame[4]++);
 
 
-		//Ïò×óÏÂËÑË÷
+		//å‘å·¦ä¸‹æœç´¢
 		for (xNow = x + 1, yNow = y - 1; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow++, yNow--, FirstSame[5]++);
 		for (; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow++, yNow--, FirstEmpty[5]++);
 		temp_x = xNow;
@@ -232,7 +232,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow++, yNow--, SecondEmpty[5]++);
 		for (; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow++, yNow--, ThirdSame[5]++);
 
-		//Ïò×óËÑË÷
+		//å‘å·¦æœç´¢
 		for (yNow = y - 1; yNow >= 0 && oBoard.GetAtTable(x, yNow) == BLACK; yNow--, FirstSame[6]++);
 		for (; yNow >= 0 && oBoard.GetAtTable(x, yNow) == EMPTY; yNow--, FirstEmpty[6]++);
 		temp_y = yNow;
@@ -241,7 +241,7 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; yNow >= 0 && oBoard.GetAtTable(x, yNow) == EMPTY; yNow--, SecondEmpty[6]++);
 		for (; yNow >= 0 && oBoard.GetAtTable(x, yNow) == BLACK; yNow--, ThirdSame[6]++);
 
-		//×óÉÏËÑË÷
+		//å·¦ä¸Šæœç´¢
 		for (xNow = x - 1, yNow = y - 1; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow--, yNow--, FirstSame[7]++);
 		for (; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow--, yNow--, FirstEmpty[7]++);
 		temp_x = xNow;
@@ -251,29 +251,29 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 		for (; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow--, yNow--, SecondEmpty[7]++);
 		for (; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == BLACK; xNow--, yNow--, ThirdSame[7]++);
 
-		//ÎåÁ¬
+		//äº”è¿
 		for (i = 0; i < 4; i++)
 		{
 			if (FirstSame[i] + FirstSame[i + 4] == 4)
 				result = BLACK;
 		}
 
-		//½ûÊÖ·ÖÎö
-		int threecount = 0;//»îÈı¼ÆÊı
-		int fourcount = 0;//³åËÄ¡¢»îËÄ¼ÆÊı 
+		//ç¦æ‰‹åˆ†æ
+		int threecount = 0;//æ´»ä¸‰è®¡æ•°
+		int fourcount = 0;//å†²å››ã€æ´»å››è®¡æ•° 
 
 		for (i = 0; i < 4; i++)
 		{
-			if (FirstSame[i] + FirstSame[i + 4] >= 5)//³¤Á¬
+			if (FirstSame[i] + FirstSame[i + 4] >= 5)//é•¿è¿
 				result = FORBIDDEN;
 
-			else if (FirstSame[i] + FirstSame[i + 4] == 3)//ËÄÁ¬,¿ÉÄÜ»áĞÎ³É³åËÄ»òÕß»îËÄ
+			else if (FirstSame[i] + FirstSame[i + 4] == 3)//å››è¿,å¯èƒ½ä¼šå½¢æˆå†²å››æˆ–è€…æ´»å››
 			{
-				//³åËÄ»òÕß»îËÄÅĞ¶Ï
+				//å†²å››æˆ–è€…æ´»å››åˆ¤æ–­
 				bool isFour = false;
 				if (FirstEmpty[i] > 0)
 				{
-					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)//Âú×ã¹Ø¼üµã²»½ûÊÖµÄÌõ¼ş
+					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)//æ»¡è¶³å…³é”®ç‚¹ä¸ç¦æ‰‹çš„æ¡ä»¶
 						isFour = true;
 				}
 
@@ -286,9 +286,9 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 					fourcount++;
 			}
 
-			else if (FirstSame[i] + FirstSame[i + 4] == 2)//ÈıÁ¬,¿ÉÄÜ»áĞÎ³É³åËÄ»òÕß»îÈı
+			else if (FirstSame[i] + FirstSame[i + 4] == 2)//ä¸‰è¿,å¯èƒ½ä¼šå½¢æˆå†²å››æˆ–è€…æ´»ä¸‰
 			{
-				//³åËÄ¼ì²é
+				//å†²å››æ£€æŸ¥
 				if (FirstEmpty[i] == 1 && SecondSame[i] == 1)
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i))
 						fourcount++;
@@ -296,20 +296,20 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4))
 						fourcount++;
 
-				//»îÈı¼ì²é
+				//æ´»ä¸‰æ£€æŸ¥
 				//    ecaXXXbdf
-				//Õâ¸öÊÇ½ûÊÖÀï×î²»ºÃÏëÇå³şµÄ£¬Ìõ¼şÀïÃæÓ¦¸ÃÓĞÖØ¸´µÄµØ·½£¬²»¹ıÕâÑùĞ´Ó¦¸Ã×îºÃÀí½â
-				if ((FirstEmpty[i] >= 1 && FirstEmpty[i + 4] >= 1) && //abÊÇ¿Õ°×
-					(FirstEmpty[i] >= 2 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] == 1 && SecondDiff[i] >= 1 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] >= 2 && FirstEmpty[i + 4] == 1 && SecondDiff[i + 4] >= 2) &&//cd²»ÄÜÊÇºÚÆå£¬Ò²²»ÄÜÍ¬Ê±ÊÇ°×É«
-					(FirstEmpty[i] == 1 || FirstEmpty[i] == 2 && SecondSame[i] == 0 || FirstEmpty[i] >= 3) &&//Èç¹ûac¶¼¿Õ£¬Ôòe²»¿ÉÒÔÊÇºÚÆå
-					(FirstEmpty[i + 4] == 1 || FirstEmpty[i + 4] == 2 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 3))//Èç¹ûbd¿Õ£¬Ôòf²»¿ÉÒÔÊÇºÚÆå
-					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true && KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)//ab²»ÊÇ½ûÊÖ
+				//è¿™ä¸ªæ˜¯ç¦æ‰‹é‡Œæœ€ä¸å¥½æƒ³æ¸…æ¥šçš„ï¼Œæ¡ä»¶é‡Œé¢åº”è¯¥æœ‰é‡å¤çš„åœ°æ–¹ï¼Œä¸è¿‡è¿™æ ·å†™åº”è¯¥æœ€å¥½ç†è§£
+				if ((FirstEmpty[i] >= 1 && FirstEmpty[i + 4] >= 1) && //abæ˜¯ç©ºç™½
+					(FirstEmpty[i] >= 2 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] == 1 && SecondDiff[i] >= 1 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] >= 2 && FirstEmpty[i + 4] == 1 && SecondDiff[i + 4] >= 2) &&//cdä¸èƒ½æ˜¯é»‘æ£‹ï¼Œä¹Ÿä¸èƒ½åŒæ—¶æ˜¯ç™½è‰²
+					(FirstEmpty[i] == 1 || FirstEmpty[i] == 2 && SecondSame[i] == 0 || FirstEmpty[i] >= 3) &&//å¦‚æœacéƒ½ç©ºï¼Œåˆ™eä¸å¯ä»¥æ˜¯é»‘æ£‹
+					(FirstEmpty[i + 4] == 1 || FirstEmpty[i + 4] == 2 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 3))//å¦‚æœbdç©ºï¼Œåˆ™fä¸å¯ä»¥æ˜¯é»‘æ£‹
+					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true && KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)//abä¸æ˜¯ç¦æ‰‹
 						threecount++;
 			}
 
-			else if (FirstSame[i] + FirstSame[i + 4] == 1)//¶şÁ¬£¬¿ÉÄÜĞÎ³É³åËÄºÍ»îÈı
+			else if (FirstSame[i] + FirstSame[i + 4] == 1)//äºŒè¿ï¼Œå¯èƒ½å½¢æˆå†²å››å’Œæ´»ä¸‰
 			{
-				//³åËÄ¼ì²é
+				//å†²å››æ£€æŸ¥
 				if (FirstEmpty[i] == 1 && SecondSame[i] == 2)
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 						fourcount++;
@@ -317,25 +317,25 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 						fourcount++;
 
-				//»îÈı¼ì²é
+				//æ´»ä¸‰æ£€æŸ¥
 				//   bmXXaXnc
-				//×¢Òâ X_XX_X ²»ÊÇ»îÈı£¡
-				//È»¶ø X_XXX_X ËÄËÄ½ûÊÖ£¡
-				if ((FirstEmpty[i] == 1 && SecondSame[i] == 1) && //aµãÊÇ¿Õ°×
-					(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//nµã±ØĞëÊÇ¿Õ°×£¬cµã²»ÄÜÊÇºÚÆå
-					(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//mµã±ØĞëÊÇ¿Õ°×£¬bµã²»ÄÜÊÇºÚÆå
+				//æ³¨æ„ X_XX_X ä¸æ˜¯æ´»ä¸‰ï¼
+				//ç„¶è€Œ X_XXX_X å››å››ç¦æ‰‹ï¼
+				if ((FirstEmpty[i] == 1 && SecondSame[i] == 1) && //aç‚¹æ˜¯ç©ºç™½
+					(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//nç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œcç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
+					(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//mç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 						threecount++;
-				if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 1) && //aµãÊÇ¿Õ°×
-					(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//nµã±ØĞëÊÇ¿Õ°×£¬cµã²»ÄÜÊÇºÚÆå
-					(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//mµã±ØĞëÊÇ¿Õ°×£¬bµã²»ÄÜÊÇºÚÆå
+				if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 1) && //aç‚¹æ˜¯ç©ºç™½
+					(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//nç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œcç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
+					(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//mç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 						threecount++;
 			}
 
-			else if (FirstSame[i] + FirstSame[i + 4] == 2 == 0)//µ¥¶ÀÒ»×Ó£¬¿ÉÄÜ»áĞÎ³É³åËÄºÍ»îÈı
+			else if (FirstSame[i] + FirstSame[i + 4] == 2 == 0)//å•ç‹¬ä¸€å­ï¼Œå¯èƒ½ä¼šå½¢æˆå†²å››å’Œæ´»ä¸‰
 			{
-				//³åËÄ¼ì²é
+				//å†²å››æ£€æŸ¥
 				if (FirstEmpty[i] == 1 && SecondSame[i] == 3)
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 						fourcount++;
@@ -343,21 +343,21 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 						fourcount++;
 
-				//»îÈı¼ì²é
+				//æ´»ä¸‰æ£€æŸ¥
 				//   bmXXaXnc
-				if ((FirstEmpty[i] == 1 && SecondSame[i] == 2) &&//aµãÊÇ¿Õ°×
-					(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//m±ØĞëÊÇ¿Õ°×£¬bµã²»ÊÇºÚ×Ó
-					(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//n±ØĞëÊÇ¿Õ°×£¬c²»ÊÇºÚÆå
+				if ((FirstEmpty[i] == 1 && SecondSame[i] == 2) &&//aç‚¹æ˜¯ç©ºç™½
+					(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//må¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸æ˜¯é»‘å­
+					(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//nå¿…é¡»æ˜¯ç©ºç™½ï¼Œcä¸æ˜¯é»‘æ£‹
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 						threecount++;
-				if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 2) &&//aµãÊÇ¿Õ°×
-					(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//m±ØĞëÊÇ¿Õ°×£¬bµã²»ÊÇºÚ×Ó
-					(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//n±ØĞëÊÇ¿Õ°×£¬c²»ÊÇºÚÆå
+				if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 2) &&//aç‚¹æ˜¯ç©ºç™½
+					(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//må¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸æ˜¯é»‘å­
+					(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//nå¿…é¡»æ˜¯ç©ºç™½ï¼Œcä¸æ˜¯é»‘æ£‹
 					if (KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 						threecount++;
 			}
 		}
-		//¸ù¾İÍ³¼ÆµÄ½á¹ûÅĞ¶Ï½ûÊÖ,³¤Á¬ÔÚÇ°Ãæ
+		//æ ¹æ®ç»Ÿè®¡çš„ç»“æœåˆ¤æ–­ç¦æ‰‹,é•¿è¿åœ¨å‰é¢
 		if (fourcount > 1)
 			result = FORBIDDEN;
 		else if (threecount > 1)
@@ -367,14 +367,14 @@ int cManager::referee(cBoard oBoard, const int x, const int y)
 	return result;
 }
 
-//¹Ø¼üµã¼ì²â£¬ÅĞ¶Ï¹¹³É»îÈı£¬³åËÄ£¬»îËÄµÄ±ØÒªÌõ¼şÖ®Ò»
-//¼´£¬¹Ø¼üµãÊÇ·ñÊÇ½ûÊÖµÄµã£¬Èç¹û½ûÊÖµÄ»°£¬ÄÇ¾Í²»ÄÜ¹¹³É»îÈı£¬³åËÄ£¬»îËÄ
-//ÆäÊµ¾ÍÊÇµİ¹éµ÷ÓÃ²ÃÅĞº¯Êı£¬ÆäÖĞÓĞÒ»Ğ©µ÷ÓÃÖ®Ç°µÄ×¼±¸¹¤×÷
-//ÀıÈç¼Ù»îÈı
+//å…³é”®ç‚¹æ£€æµ‹ï¼Œåˆ¤æ–­æ„æˆæ´»ä¸‰ï¼Œå†²å››ï¼Œæ´»å››çš„å¿…è¦æ¡ä»¶ä¹‹ä¸€
+//å³ï¼Œå…³é”®ç‚¹æ˜¯å¦æ˜¯ç¦æ‰‹çš„ç‚¹ï¼Œå¦‚æœç¦æ‰‹çš„è¯ï¼Œé‚£å°±ä¸èƒ½æ„æˆæ´»ä¸‰ï¼Œå†²å››ï¼Œæ´»å››
+//å…¶å®å°±æ˜¯é€’å½’è°ƒç”¨è£åˆ¤å‡½æ•°ï¼Œå…¶ä¸­æœ‰ä¸€äº›è°ƒç”¨ä¹‹å‰çš„å‡†å¤‡å·¥ä½œ
+//ä¾‹å¦‚å‡æ´»ä¸‰
 bool cManager::KeyPointCheck(cBoard oBoard, const int x, const int y, int FirstSame, int direction)
 {
 	int KeyX, KeyY;
-	//ÏÈ¼ÆËã¹Ø¼üµãµÄ×ø±ê
+	//å…ˆè®¡ç®—å…³é”®ç‚¹çš„åæ ‡
 	switch (direction)
 	{
 	case 0:
@@ -411,16 +411,16 @@ bool cManager::KeyPointCheck(cBoard oBoard, const int x, const int y, int FirstS
 		break;
 	}
 
-	//¹Ø¼üµã´¦ÏÈÏÂÆå²¢ÅĞ¶ÏÊÇ·ñ½ûÊÖ,×¢ÒâÊÇĞÎ²Î±ä»¯²»»áÓ°ÏìÕû¸öÆåÅÌ
+	//å…³é”®ç‚¹å¤„å…ˆä¸‹æ£‹å¹¶åˆ¤æ–­æ˜¯å¦ç¦æ‰‹,æ³¨æ„æ˜¯å½¢å‚å˜åŒ–ä¸ä¼šå½±å“æ•´ä¸ªæ£‹ç›˜
 	oBoard.SetAtTable(KeyX, KeyY, BLACK);
-	if (referee(oBoard, KeyX, KeyY) == FORBIDDEN)//Èç¹û½ûÊÖ
-		return false;//²»¹¹³É
+	if (referee(oBoard, KeyX, KeyY) == FORBIDDEN)//å¦‚æœç¦æ‰‹
+		return false;//ä¸æ„æˆ
 	else
-		return true;//¹¹³É»îÈı¡¢»îËÄ¡¢³åËÄ
+		return true;//æ„æˆæ´»ä¸‰ã€æ´»å››ã€å†²å››
 }
 
-//·µ»Ø1 ´ú±í¼ÌĞøÏÂÒ»ÅÌ
-//·µ»Ø0 ´ú±íÍË³ö
+//è¿”å›1 ä»£è¡¨ç»§ç»­ä¸‹ä¸€ç›˜
+//è¿”å›0 ä»£è¡¨é€€å‡º
 int cManager::Gaming(cBoard& oBoard)
 {
 	oBoard.RefreshScreen();
@@ -436,12 +436,12 @@ int cManager::Gaming(cBoard& oBoard)
 				oPlayer1.SetAtPosition();
 				while (oBoard.WhetherEmpty(oPlayer1.GetAtRow(), oPlayer1.GetAtColumn()) == NEMPTY)
 				{
-					cout << "ÕâÀïÒÑ¾­ÓĞÆå×ÓÁË£¬";
+					cout << "è¿™é‡Œå·²ç»æœ‰æ£‹å­äº†ï¼Œ";
 					oPlayer1.SetAtPosition();
 				} 
 				oBoard.SetAtTable(oPlayer1.GetAtRow(), oPlayer1.GetAtColumn(), PlayerColor);
 				oBoard.RefreshScreen(oPlayer1.GetAtRow(), oPlayer1.GetAtColumn());
-				fnExchange();//½»»»ÏÂÒ»´ÎÏÂÆåµÄ½ÇÉ«
+				fnExchange();//äº¤æ¢ä¸‹ä¸€æ¬¡ä¸‹æ£‹çš„è§’è‰²
 				result = referee(oBoard, oPlayer1.GetAtRow(), oPlayer1.GetAtColumn());
 				if (result)
 					break;
@@ -452,7 +452,7 @@ int cManager::Gaming(cBoard& oBoard)
 				oPlayer2.SetAtPosition();
 				while (oBoard.WhetherEmpty(oPlayer2.GetAtRow(), oPlayer2.GetAtColumn()) == NEMPTY)
 				{
-					cout << "ÕâÀïÒÑ¾­ÓĞÆå×ÓÁË£¬";
+					cout << "è¿™é‡Œå·²ç»æœ‰æ£‹å­äº†ï¼Œ";
 					oPlayer2.SetAtPosition();
 				} 
 				oBoard.SetAtTable(oPlayer2.GetAtRow(), oPlayer2.GetAtColumn(), PlayerColor % 2 + 1);
@@ -475,7 +475,7 @@ int cManager::Gaming(cBoard& oBoard)
 				oPlayer0.SetAtPosition();
 				while (oBoard.WhetherEmpty(oPlayer0.GetAtRow(), oPlayer0.GetAtColumn()) == NEMPTY)
 				{
-					cout << "ÕâÀïÒÑ¾­ÓĞÆå×ÓÁË£¬";
+					cout << "è¿™é‡Œå·²ç»æœ‰æ£‹å­äº†ï¼Œ";
 					oPlayer0.SetAtPosition();
 				}
 				oBoard.SetAtTable(oPlayer0.GetAtRow(), oPlayer0.GetAtColumn(), PlayerColor);
@@ -489,7 +489,7 @@ int cManager::Gaming(cBoard& oBoard)
 			{
 				oAI.RefreshChart(oBoard, PlayerColor, AI);
 				oAI.RefreshChart(oBoard, PlayerColor, PLAYER);
-				if (oAI.SearchForBestPosition() == -1)//Ã»ÓĞµØ·½¿ÉÒÔÏÂÆåÁË£¬ºÍÆå
+				if (oAI.SearchForBestPosition() == -1)//æ²¡æœ‰åœ°æ–¹å¯ä»¥ä¸‹æ£‹äº†ï¼Œå’Œæ£‹
 				{
 					result = EQUAL;
 					break;
@@ -508,22 +508,22 @@ int cManager::Gaming(cBoard& oBoard)
 
 int cManager::ShowResult()
 {
-	//Êä³ö±ÈÈü½á¹û
+	//è¾“å‡ºæ¯”èµ›ç»“æœ
 	if (result == BLACK)
 	{
 		if (GameMode == PLAYERVSPLAYER)
 		{
 			if (PlayerColor == BLACK)
-				cout << "Íæ¼Ò1»ñÊ¤" << endl;
+				cout << "ç©å®¶1è·èƒœ" << endl;
 			else
-				cout << "Íæ¼Ò2»ñÊ¤" << endl;
+				cout << "ç©å®¶2è·èƒœ" << endl;
 		}
 		if (GameMode == PLAYERVSAI)
 		{
 			if (PlayerColor == BLACK)
-				cout << "Íæ¼Ò»ñÊ¤" << endl;
+				cout << "ç©å®¶è·èƒœ" << endl;
 			else
-				cout << "µçÄÔ»ñÊ¤" << endl;
+				cout << "ç”µè„‘è·èƒœ" << endl;
 		}
 	}
 	else if (result == WHITE)
@@ -531,16 +531,16 @@ int cManager::ShowResult()
 		if (GameMode == PLAYERVSPLAYER)
 		{
 			if (PlayerColor == BLACK)
-				cout << "Íæ¼Ò2»ñÊ¤" << endl;
+				cout << "ç©å®¶2è·èƒœ" << endl;
 			else
-				cout << "Íæ¼Ò1»ñÊ¤" << endl;
+				cout << "ç©å®¶1è·èƒœ" << endl;
 		}
 		if (GameMode == PLAYERVSAI)
 		{
 			if (PlayerColor == BLACK)
-				cout << "µçÄÔ»ñÊ¤" << endl;
+				cout << "ç”µè„‘è·èƒœ" << endl;
 			else
-				cout << "Íæ¼Ò»ñÊ¤" << endl;
+				cout << "ç©å®¶è·èƒœ" << endl;
 		}
 	}
 	else if (result == FORBIDDEN)
@@ -548,25 +548,25 @@ int cManager::ShowResult()
 		if (GameMode == PLAYERVSPLAYER)
 		{
 			if (PlayerColor == BLACK)
-				cout << "Íæ¼Ò1½ûÊÖ£¬Íæ¼Ò2»ñÊ¤" << endl;
+				cout << "ç©å®¶1ç¦æ‰‹ï¼Œç©å®¶2è·èƒœ" << endl;
 			else
-				cout << "Íæ¼Ò2½ûÊÖ£¬Íæ¼Ò1»ñÊ¤" << endl;
+				cout << "ç©å®¶2ç¦æ‰‹ï¼Œç©å®¶1è·èƒœ" << endl;
 		}
 		if (GameMode == PLAYERVSAI)
 		{
 			if (PlayerColor == BLACK)
-				cout << "Íæ¼Ò½ûÊÖ£¬µçÄÔ»ñÊ¤" << endl;
+				cout << "ç©å®¶ç¦æ‰‹ï¼Œç”µè„‘è·èƒœ" << endl;
 			else
-				cout << "µçÄÔ½ûÊÖ£¬Íæ¼Ò»ñÊ¤" << endl;//²»Ó¦¸Ã³öÏÖ
+				cout << "ç”µè„‘ç¦æ‰‹ï¼Œç©å®¶è·èƒœ" << endl;//ä¸åº”è¯¥å‡ºç°
 		}
 	}
 	else if (result == EQUAL)
 	{
-		cout << "Æ½¾Ö" << endl;
+		cout << "å¹³å±€" << endl;
 	}
 	char again;
 	char c;
-	cout << "ÏëÒªÔÙÀ´Ò»ÅÌÂğ£¿(Y/N)" << endl;
+	cout << "æƒ³è¦å†æ¥ä¸€ç›˜å—ï¼Ÿ(Y/N)" << endl;
 	again = cin.get();
 	do {
 		c = cin.get();

@@ -2,21 +2,21 @@
 
 using namespace std;
 
-//MSDNÉÏµÄÔ­»°
-//vs2015ÓÃsync£¬ÊäÈëÁ÷»º³åÇøÇå³ı²»µô
+//MSDNä¸Šçš„åŸè¯
+//vs2015ç”¨syncï¼Œè¾“å…¥æµç¼“å†²åŒºæ¸…é™¤ä¸æ‰
 //https://blogs.msdn.microsoft.com/c/2016/04/15/visual-c-2015-update-2-bug-%E4%BF%AE%E5%A4%8D/
 //cin.sync() and fflush(stdin) do not work with Visual Studio 2015
 void cPlayer0::SetFromScreen()
 {
 	char c;
-	cout << "ÇëÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-	//cin.sync();//Çå³ı»º³åÇø
-	cin.clear();//Çå³ı±êÖ¾Î»
+	cout << "è¯·è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+	//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+	cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 	while (!(cin.getline(PositionInput, 3)))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-		//cin.sync();//Çå³ı»º³åÇø
-		cin.clear();//Çå³ı±êÖ¾Î»
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+		//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+		cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 		do {
 			c = cin.get();
 		} while (c != '\n');
@@ -24,12 +24,12 @@ void cPlayer0::SetFromScreen()
 	}
 	while (!(((PositionInput[0] >= '0'&&PositionInput[0] <= '9') || (PositionInput[0] >= 'a'&&PositionInput[0] <= 'e') || (PositionInput[0] >= 'A'&&PositionInput[0] <= 'E')) && ((PositionInput[1] >= 'a'&&PositionInput[1] <= 'o') || (PositionInput[1] >= 'A'&&PositionInput[1] <= 'O'))))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÊäÈëÏÂÆåµÄÎ»ÖÃ:";
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
 		while (!(cin.getline(PositionInput, 3)))
 		{
-			cout << "ÊäÈë´íÎó£¬ÇëÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-			//cin.sync();//Çå³ı»º³åÇø
-			cin.clear();//Çå³ı±êÖ¾Î»
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+			//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+			cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 			do {
 				c = cin.get();
 			} while (c != '\n');
@@ -40,26 +40,26 @@ void cPlayer0::SetFromScreen()
 void cPlayer1::SetFromScreen()
 {
 	char c;
-	cout << "ÇëÍæ¼Ò1ÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-	//cin.sync();//Çå³ı»º³åÇø
-	cin.clear();//Çå³ı±êÖ¾Î»
+	cout << "è¯·ç©å®¶1è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+	//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+	cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 	while (!(cin.getline(PositionInput, 3)))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÍæ¼Ò1ÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-		//cin.sync();//Çå³ı»º³åÇø
-		cin.clear();//Çå³ı±êÖ¾Î»
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·ç©å®¶1è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+		//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+		cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 		do {
 			c = cin.get();
 		} while (c != '\n');
 	}
 	while (!(((PositionInput[0] >= '0'&&PositionInput[0] <= '9') || (PositionInput[0] >= 'a'&&PositionInput[0] <= 'e') || (PositionInput[0] >= 'A'&&PositionInput[0] <= 'E')) && ((PositionInput[1] >= 'a'&&PositionInput[1] <= 'o') || (PositionInput[1] >= 'A'&&PositionInput[1] <= 'O'))))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÍæ¼Ò1ÊäÈëÏÂÆåµÄÎ»ÖÃ";
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·ç©å®¶1è¾“å…¥ä¸‹æ£‹çš„ä½ç½®";
 		while (!(cin.getline(PositionInput, 3)))
 		{
-			cout << "ÊäÈë´íÎó£¬ÇëÍæ¼Ò1ÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-			//cin.sync();//Çå³ı»º³åÇø
-			cin.clear();//Çå³ı±êÖ¾Î»
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·ç©å®¶1è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+			//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+			cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 			do {
 				c = cin.get();
 			} while (c != '\n');
@@ -70,26 +70,26 @@ void cPlayer1::SetFromScreen()
 void cPlayer2::SetFromScreen()
 {
 	char c;
-	cout << "ÇëÍæ¼Ò2ÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-	//cin.sync();//Çå³ı»º³åÇø
-	cin.clear();//Çå³ı±êÖ¾Î»
+	cout << "è¯·ç©å®¶2è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+	//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+	cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 	while (!(cin.getline(PositionInput, 3)))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÍæ¼Ò2ÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-		//cin.sync();//Çå³ı»º³åÇø
-		cin.clear();//Çå³ı±êÖ¾Î»
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·ç©å®¶2è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+		//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+		cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 		do {
 			c = cin.get();
 		} while (c != '\n');
 	}
 	while (!(((PositionInput[0] >= '0'&&PositionInput[0] <= '9') || (PositionInput[0] >= 'a'&&PositionInput[0] <= 'e') || (PositionInput[0] >= 'A'&&PositionInput[0] <= 'E')) && ((PositionInput[1] >= 'a'&&PositionInput[1] <= 'o') || (PositionInput[1] >= 'A'&&PositionInput[1] <= 'O'))))
 	{
-		cout << "ÊäÈë´íÎó£¬ÇëÍæ¼Ò2ÊäÈëÏÂÆåµÄÎ»ÖÃ";
+		cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·ç©å®¶2è¾“å…¥ä¸‹æ£‹çš„ä½ç½®";
 		while (!(cin.getline(PositionInput, 3)))
 		{
-			cout << "ÊäÈë´íÎó£¬ÇëÍæ¼Ò2ÊäÈëÏÂÆåµÄÎ»ÖÃ:";
-			//cin.sync();//Çå³ı»º³åÇø
-			cin.clear();//Çå³ı±êÖ¾Î»
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·ç©å®¶2è¾“å…¥ä¸‹æ£‹çš„ä½ç½®:";
+			//cin.sync();//æ¸…é™¤ç¼“å†²åŒº
+			cin.clear();//æ¸…é™¤æ ‡å¿—ä½
 			do {
 				c = cin.get();
 			} while (c != '\n');
@@ -97,7 +97,7 @@ void cPlayer2::SetFromScreen()
 	}
 }
 
-//·­Òë³ÉĞĞÊıºÍÁĞÊı
+//ç¿»è¯‘æˆè¡Œæ•°å’Œåˆ—æ•°
 inline void cPerson::Char2Position()
 {
 	if (PositionInput[0] >= '0'&&PositionInput[0] <= '9')

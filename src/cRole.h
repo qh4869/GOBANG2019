@@ -6,8 +6,8 @@
 #include <ctime>
 #include <cstdlib>
 #include <math.h>
-//½ÇÉ«ÀàÅÉÉúÈËÀàºÍAIÀà
-//ÈËÀàÅÉÉú³öÓëµçÄÔ¶Ô¾öµÄÍæ¼Ò0Àà¡¢»¥ÏàPKµÄÍæ¼Ò1ÀàºÍÍæ¼Ò2Àà
+//è§’è‰²ç±»æ´¾ç”Ÿäººç±»å’ŒAIç±»
+//äººç±»æ´¾ç”Ÿå‡ºä¸Žç”µè„‘å¯¹å†³çš„çŽ©å®¶0ç±»ã€äº’ç›¸PKçš„çŽ©å®¶1ç±»å’ŒçŽ©å®¶2ç±»
 class cRole
 {
 protected:

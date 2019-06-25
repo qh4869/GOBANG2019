@@ -1,2 +1,4 @@
 *.cbp
 *.layout
+_bin
+_build

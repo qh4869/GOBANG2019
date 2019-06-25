@@ -11,19 +11,19 @@ private:
 	int GameMode;
 	int WhoNext;
 	int PlayerColor;
-	int result;//²ÃÅĞº¯ÊıµÄ·µ»ØÖµ
+	int result;//è£åˆ¤å‡½æ•°çš„è¿”å›å€¼
 
 public:
 	void SetAtGameMode(int);
 	int GetATGameMode();
 	void WhoFirst(int);
-	void fnExchange();//½»»»ÏÂÒ»²½ÏÂÆåµÄÍæ¼Ò
+	void fnExchange();//äº¤æ¢ä¸‹ä¸€æ­¥ä¸‹æ£‹çš„ç©å®¶
 	int GetAtWhoNext();
 	void SetAtPlayerColor(int);
 	int GetAtPlayerColor();
 	void ModeChoice();
-	int referee(cBoard, const int, const int);//²ÃÅĞº¯Êı
+	int referee(cBoard, const int, const int);//è£åˆ¤å‡½æ•°
 	bool KeyPointCheck(cBoard oBoard, const int x, const int y, int adjsame, int direction);
-	int Gaming(cBoard&);//ÓÎÏ·¶ÔÕ½ÖĞ
-	int ShowResult();//Êä³öÓÎÏ·½á¹û£¬²¢Ñ¯ÎÊÊÇ·ñ¼ÌĞøÏÂÒ»ÅÌ1´ú±í¼ÌĞø 0 ´ú±í²»¼ÌĞø
+	int Gaming(cBoard&);//æ¸¸æˆå¯¹æˆ˜ä¸­
+	int ShowResult();//è¾“å‡ºæ¸¸æˆç»“æœï¼Œå¹¶è¯¢é—®æ˜¯å¦ç»§ç»­ä¸‹ä¸€ç›˜1ä»£è¡¨ç»§ç»­ 0 ä»£è¡¨ä¸ç»§ç»­
 };

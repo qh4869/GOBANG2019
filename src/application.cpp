@@ -4,21 +4,23 @@
 #include "macro.h"
 
 
-void main()
+int main()
 {
-	/*²âÊÔÎÄ¼ş,testfileÀïµÄÇ°ËÄ¾ä·Åµ½È«¾Ö¾Í¿ÉÒÔÓÃÁË
+	/*æµ‹è¯•æ–‡ä»¶,testfileé‡Œçš„å‰å››å¥æ”¾åˆ°å…¨å±€å°±å¯ä»¥ç”¨äº†
 	void test();
 	test();*/
 
-	//Ö÷³ÌĞò²¿·Ö
+	//ä¸»ç¨‹åºéƒ¨åˆ†
 	cManager oManager;
 	cBoard oBoard;
 
 	oManager.ModeChoice();
 
-	while (oManager.Gaming(oBoard) == 1)//ÔÙÀ´Ò»ÅÌ
+	while (oManager.Gaming(oBoard) == 1)//å†æ¥ä¸€ç›˜
 	{
 		oBoard.SetToZero();
 		oManager.ModeChoice();
 	}
+
+	return 0;
 }
