@@ -6,6 +6,8 @@
 
 int main()
 {
+    system("chcp 65001");// 命令行编码改为utf-8
+
 	/*测试文件,testfile里的前四句放到全局就可以用了
 	void test();
 	test();*/

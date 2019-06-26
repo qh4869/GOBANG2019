@@ -23,11 +23,12 @@ void cBoard::RefreshScreen(int iPositioni, int iPosintionj)
 {
 	int i, j;
 	//命令行清屏
-	#ifdef __GNUC__
-    system("clear");
-    #elif defined _MSC_VER
+	//#ifdef  _MSC_VER
     system("cls");
-    #endif
+    //#elif defined __GNUC__
+    //system("clear");
+    //#endif
+
 	cout << "              五子棋  Made By QH" << endl;
 	cout << "=================================================" << endl;
 	for (i = 0; i<15; i++)

@@ -1,11 +1,11 @@
 #pragma once
 #include "macro.h"
 #include <iostream>
-#if defined __GNUC__
-#include <unistd.h>
-#elif defined _MSC_VER
-#include <windows.h>
-#endif
+//#if defined _MSC_VER
+#include <cstdlib>
+//#elif defined __GNUC__
+//#include <unistd.h>
+//#endif
 class cBoard
 {
 private:

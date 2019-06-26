@@ -1,4 +1,6 @@
 *.cbp
 *.layout
-_bin
-_build
+bin
+build
+obj
+*.depend
