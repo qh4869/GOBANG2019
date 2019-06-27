@@ -6,7 +6,9 @@
 
 int main()
 {
+	#ifdef _WIN32
     system("chcp 65001");// 命令行编码改为utf-8
+    #endif
 
 	/*测试文件,testfile里的前四句放到全局就可以用了
 	void test();

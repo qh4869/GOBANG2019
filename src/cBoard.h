@@ -1,9 +1,9 @@
 #pragma once
 #include "macro.h"
 #include <iostream>
-//#if defined _MSC_VER
+//#if defined _WIN32
 #include <cstdlib>
-//#elif defined __GNUC__
+//#elif defined __APPLE__
 //#include <unistd.h>
 //#endif
 class cBoard

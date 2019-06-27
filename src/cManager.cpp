@@ -39,7 +39,15 @@ int cManager::GetAtPlayerColor()
 
 void cManager::ModeChoice()
 {
-	system("cls");//命令行清屏
+
+	//命令行清屏
+	#ifdef _WIN32
+	cout << "def" << endl;
+    system("cls");
+    #elif defined __APPLE__
+    system("clear");
+    #endif
+    
 	int ModeInput;
 	char c;//cin.sync() and fflush(stdin) do not work with Visual Studio 2015
 	//输入游戏模式
