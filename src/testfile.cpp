@@ -1,24 +1,24 @@
-//æµ‹è¯•æ–‡ä»¶
-//æµ‹è¯•æ–‡ä»¶
+//²âÊÔÎÄ¼ş
+//²âÊÔÎÄ¼ş
 #include "macro.h"
 
 void test()
 {
-	//ç¨‹åºæµ‹è¯•éƒ¨åˆ†
-	ifstream fin("input.txt");  // å·²æœ‰è¾“å…¥æ–‡ä»¶
-	ofstream fout("output.txt");  //è¾“å‡ºæ–‡ä»¶
+	//³ÌĞò²âÊÔ²¿·Ö
+	ifstream fin("input.txt");  // ÒÑÓĞÊäÈëÎÄ¼ş
+	ofstream fout("output.txt");  //Êä³öÎÄ¼ş
 	streambuf *cinbackup;
 	streambuf *coutbackup;
 
-	coutbackup = cout.rdbuf(fout.rdbuf());  //ç”¨ rdbuf() é‡æ–°å®šå‘
-	cinbackup = cin.rdbuf(fin.rdbuf());  //ç”¨ rdbuf() é‡æ–°å®šå‘
-	cout << "Hello world" << endl;   //å»æ–‡ä»¶ä¹Ÿ
+	coutbackup = cout.rdbuf(fout.rdbuf());  //ÓÃ rdbuf() ÖØĞÂ¶¨Ïò
+	cinbackup = cin.rdbuf(fin.rdbuf());  //ÓÃ rdbuf() ÖØĞÂ¶¨Ïò
+	cout << "Hello world" << endl;   //È¥ÎÄ¼şÒ²
 	//char line[100];
-	//cin >> line;  //ä»input.txtæ–‡ä»¶è¯»å…¥
-	//cout << line << endl;  //å†™å…¥ output.txt
+	//cin >> line;  //´Óinput.txtÎÄ¼ş¶ÁÈë
+	//cout << line << endl;  //Ğ´Èë output.txt
 						   // restore standard streambuf   
-	//cin.rdbuf(cinbackup);  // å–æ¶ˆï¼Œæ¢å¤é”®ç›˜è¾“å…¥
-	//cout.rdbuf(coutbackup);  //å–æ¶ˆï¼Œæ¢å¤å±å¹•è¾“å‡º
-							 //æµ‹è¯•éƒ¨åˆ†ç»“æŸ
+	//cin.rdbuf(cinbackup);  // È¡Ïû£¬»Ö¸´¼üÅÌÊäÈë
+	//cout.rdbuf(coutbackup);  //È¡Ïû£¬»Ö¸´ÆÁÄ»Êä³ö
+							 //²âÊÔ²¿·Ö½áÊø
 
 }

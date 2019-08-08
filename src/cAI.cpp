@@ -15,7 +15,7 @@ cAI::cAI()
 void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 {
 	int ColorNow;
-	if (PlayerColor == BLACK && type == PLAYER || PlayerColor == WHITE && type == AI)//é»‘æ£‹æ£‹å‹è¡¨
+	if (PlayerColor == BLACK && type == PLAYER || PlayerColor == WHITE && type == AI)//ºÚÆåÆåĞÍ±í
 		ColorNow = BLACK;
 	else
 		ColorNow = WHITE;
@@ -30,7 +30,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 		aChart = PlayerChart;
 		ColorNow = PlayerColor;
 	}
-	cManager oManager;//åªæ˜¯ç”¨ä¸€ä¸‹è£åˆ¤å‡½æ•°
+	cManager oManager;//Ö»ÊÇÓÃÒ»ÏÂ²ÃÅĞº¯Êı
 
 	int x, y;
 
@@ -43,17 +43,17 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 				aChart[x][y] = 0;
 				continue;
 			}
-			oBoard.SetAtTable(x, y, ColorNow);//ä¸‹æŠŠæ£‹ä¸‹é‡Œï¼Œè¿™ä¼šå½±å“ä¹‹ååˆ¤æ–­æ´»ä¸‰æ´»å››å†²å››çš„é€’å½’
-			//ä¸‹é¢è¿™äº›éœ€è¦ç»Ÿè®¡çš„å˜é‡ï¼Œåœ¨ç¦æ‰‹åˆ¤æ–­ä¸­å…¨éƒ¨éƒ½ç”¨å¾—åˆ°
-			int FirstSame[8];//ç›¸è¿åŒè‰²æ£‹å­ä¸ªæ•°ï¼Œ
-			int FirstEmpty[8];//ä¸¤ä¾§ç©ºç™½ä¸ªæ•°
-			int SecondSame[8];//ç©ºç™½ä¹‹ååŒè‰²æ£‹å­ä¸ªæ•°,é»‘
-			int SecondDiff[8];//ç©ºç™½ä¹‹åå¼‚è‰²æ£‹å­ä¸ªæ•°,ç™½
-			int SecondEmpty[8];//é»‘æ£‹+ç©ºç™½+é»‘æ£‹ ä¹‹åçš„ç©ºç™½ä¸ªæ•°
-			int ThirdSame[8];//é»‘æ£‹+ç©ºç™½+é»‘æ£‹+ç©ºç™½ ä¹‹åé»‘æ£‹çš„ä¸ªæ•°
+			oBoard.SetAtTable(x, y, ColorNow);//ÏÂ°ÑÆåÏÂÀï£¬Õâ»áÓ°ÏìÖ®ºóÅĞ¶Ï»îÈı»îËÄ³åËÄµÄµİ¹é
+			//ÏÂÃæÕâĞ©ĞèÒªÍ³¼ÆµÄ±äÁ¿£¬ÔÚ½ûÊÖÅĞ¶ÏÖĞÈ«²¿¶¼ÓÃµÃµ½
+			int FirstSame[8];//ÏàÁ¬Í¬É«Æå×Ó¸öÊı£¬
+			int FirstEmpty[8];//Á½²à¿Õ°×¸öÊı
+			int SecondSame[8];//¿Õ°×Ö®ºóÍ¬É«Æå×Ó¸öÊı,ºÚ
+			int SecondDiff[8];//¿Õ°×Ö®ºóÒìÉ«Æå×Ó¸öÊı,°×
+			int SecondEmpty[8];//ºÚÆå+¿Õ°×+ºÚÆå Ö®ºóµÄ¿Õ°×¸öÊı
+			int ThirdSame[8];//ºÚÆå+¿Õ°×+ºÚÆå+¿Õ°× Ö®ºóºÚÆåµÄ¸öÊı
 
 			int i;
-			//èµ‹åˆå€¼
+			//¸³³õÖµ
 			for (i = 0; i < 8; i++)
 			{
 				FirstSame[i] = 0;
@@ -67,7 +67,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			int xNow, yNow;
 			int temp_x, temp_y;
 
-			//å‘ä¸Šæœç´¢
+			//ÏòÉÏËÑË÷
 			for (xNow = x - 1; xNow >= 0 && oBoard.GetAtTable(xNow, y) == ColorNow; xNow--, FirstSame[0]++);
 			for (; xNow >= 0 && oBoard.GetAtTable(xNow, y) == EMPTY; xNow--, FirstEmpty[0]++);
 			temp_x = xNow;
@@ -77,7 +77,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; xNow >= 0 && oBoard.GetAtTable(xNow, y) == ColorNow; xNow--, ThirdSame[0]++);
 
 
-			//å³ä¸Šæœç´¢
+			//ÓÒÉÏËÑË÷
 			for (xNow = x - 1, yNow = y + 1; xNow >= 0 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow--, yNow++, FirstSame[1]++);
 			for (; xNow >= 0 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow--, yNow++, FirstEmpty[1]++);
 			temp_x = xNow;
@@ -88,7 +88,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; xNow >= 0 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow--, yNow++, ThirdSame[1]++);
 
 
-			//å‘å³æœç´¢
+			//ÏòÓÒËÑË÷
 			for (yNow = y + 1; yNow <= 14 && oBoard.GetAtTable(x, yNow) == ColorNow; yNow++, FirstSame[2]++);
 			for (; yNow <= 14 && oBoard.GetAtTable(x, yNow) == EMPTY; yNow++, FirstEmpty[2]++);
 			temp_y = yNow;
@@ -98,7 +98,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; yNow <= 14 && oBoard.GetAtTable(x, yNow) == ColorNow; yNow++, ThirdSame[2]++);
 
 
-			//å‘å³ä¸‹æœç´¢
+			//ÏòÓÒÏÂËÑË÷
 			for (xNow = x + 1, yNow = y + 1; xNow <= 14 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow++, yNow++, FirstSame[3]++);
 			for (; xNow <= 14 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow++, yNow++, FirstEmpty[3]++);
 			temp_x = xNow;
@@ -109,7 +109,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; xNow <= 14 && yNow <= 14 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow++, yNow++, ThirdSame[3]++);
 
 
-			//å‘ä¸‹æœç´¢
+			//ÏòÏÂËÑË÷
 			for (xNow = x + 1; xNow <= 14 && oBoard.GetAtTable(xNow, y) == ColorNow; xNow++, FirstSame[4]++);
 			for (; xNow <= 14 && oBoard.GetAtTable(xNow, y) == EMPTY; xNow++, FirstEmpty[4]++);
 			temp_x = xNow;
@@ -119,7 +119,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; xNow <= 14 && oBoard.GetAtTable(xNow, y) == ColorNow; xNow++, ThirdSame[4]++);
 
 
-			//å‘å·¦ä¸‹æœç´¢
+			//Ïò×óÏÂËÑË÷
 			for (xNow = x + 1, yNow = y - 1; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow++, yNow--, FirstSame[5]++);
 			for (; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow++, yNow--, FirstEmpty[5]++);
 			temp_x = xNow;
@@ -129,7 +129,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow++, yNow--, SecondEmpty[5]++);
 			for (; xNow <= 14 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow++, yNow--, ThirdSame[5]++);
 
-			//å‘å·¦æœç´¢
+			//Ïò×óËÑË÷
 			for (yNow = y - 1; yNow >= 0 && oBoard.GetAtTable(x, yNow) == ColorNow; yNow--, FirstSame[6]++);
 			for (; yNow >= 0 && oBoard.GetAtTable(x, yNow) == EMPTY; yNow--, FirstEmpty[6]++);
 			temp_y = yNow;
@@ -138,7 +138,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; yNow >= 0 && oBoard.GetAtTable(x, yNow) == EMPTY; yNow--, SecondEmpty[6]++);
 			for (; yNow >= 0 && oBoard.GetAtTable(x, yNow) == ColorNow; yNow--, ThirdSame[6]++);
 
-			//å·¦ä¸Šæœç´¢
+			//×óÉÏËÑË÷
 			for (xNow = x - 1, yNow = y - 1; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow--, yNow--, FirstSame[7]++);
 			for (; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow--, yNow--, FirstEmpty[7]++);
 			temp_x = xNow;
@@ -148,7 +148,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 			for (; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == EMPTY; xNow--, yNow--, SecondEmpty[7]++);
 			for (; xNow >= 0 && yNow >= 0 && oBoard.GetAtTable(xNow, yNow) == ColorNow; xNow--, yNow--, ThirdSame[7]++);
 
-			//äº”è¿
+			//ÎåÁ¬
 			int fivecount = 0;
 			for (i = 0; i < 4; i++)
 			{
@@ -156,26 +156,26 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 					fivecount++;
 			}
 
-			//ç¦æ‰‹åˆ†æ
-			int sthreecount = 0;//å•å…³é”®ç‚¹æ´»ä¸‰è®¡æ•°
-			int dthreecount = 0;//åŒå…³é”®ç‚¹æ´»ä¸‰
-			int hfourcount = 0;//æ´»å››è®¡æ•° 
-			int cfourcount = 0;//å†²å››è®¡æ•°
+			//½ûÊÖ·ÖÎö
+			int sthreecount = 0;//µ¥¹Ø¼üµã»îÈı¼ÆÊı
+			int dthreecount = 0;//Ë«¹Ø¼üµã»îÈı
+			int hfourcount = 0;//»îËÄ¼ÆÊı 
+			int cfourcount = 0;//³åËÄ¼ÆÊı
 			int longcount = 0;
 
 			for (i = 0; i < 4; i++)
 			{
-				if (FirstSame[i] + FirstSame[i + 4] >= 5)//é•¿è¿
+				if (FirstSame[i] + FirstSame[i + 4] >= 5)//³¤Á¬
 					longcount++;
 
-				else if (FirstSame[i] + FirstSame[i + 4] == 3)//å››è¿,å¯èƒ½ä¼šå½¢æˆå†²å››æˆ–è€…æ´»å››
+				else if (FirstSame[i] + FirstSame[i + 4] == 3)//ËÄÁ¬,¿ÉÄÜ»áĞÎ³É³åËÄ»òÕß»îËÄ
 				{
-					//å†²å››æ´»å››åˆ¤æ–­
+					//³åËÄ»îËÄÅĞ¶Ï
 					bool isFour1 = false;
 					bool isFour2 = false;
 					if (FirstEmpty[i] > 0)
 					{
-						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)//æ»¡è¶³å…³é”®ç‚¹ä¸ç¦æ‰‹çš„æ¡ä»¶
+						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)//Âú×ã¹Ø¼üµã²»½ûÊÖµÄÌõ¼ş
 							isFour1 = true;
 					}
 
@@ -190,9 +190,9 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 						cfourcount++;
 				}
 
-				else if (FirstSame[i] + FirstSame[i + 4] == 2)//ä¸‰è¿,å¯èƒ½ä¼šå½¢æˆå†²å››æˆ–è€…æ´»ä¸‰
+				else if (FirstSame[i] + FirstSame[i + 4] == 2)//ÈıÁ¬,¿ÉÄÜ»áĞÎ³É³åËÄ»òÕß»îÈı
 				{
-					//å†²å››æ£€æŸ¥
+					//³åËÄ¼ì²é
 					if (FirstEmpty[i] == 1 && SecondSame[i] == 1)
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i))
 							cfourcount++;
@@ -200,20 +200,20 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4))
 							cfourcount++;
 
-					//æ´»ä¸‰æ£€æŸ¥
+					//»îÈı¼ì²é
 					//    ecaXXXbdf
-					//è¿™ä¸ªæ˜¯ç¦æ‰‹é‡Œæœ€ä¸å¥½æƒ³æ¸…æ¥šçš„ï¼Œæ¡ä»¶é‡Œé¢åº”è¯¥æœ‰é‡å¤çš„åœ°æ–¹ï¼Œä¸è¿‡è¿™æ ·å†™åº”è¯¥æœ€å¥½ç†è§£
-					if ((FirstEmpty[i] >= 1 && FirstEmpty[i + 4] >= 1) && //abæ˜¯ç©ºç™½
-						(FirstEmpty[i] >= 2 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] == 1 && SecondDiff[i] >= 1 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] >= 2 && FirstEmpty[i + 4] == 1 && SecondDiff[i + 4] >= 2) &&//cdä¸èƒ½æ˜¯é»‘æ£‹ï¼Œä¹Ÿä¸èƒ½åŒæ—¶æ˜¯ç™½è‰²
-						(FirstEmpty[i] == 1 || FirstEmpty[i] == 2 && SecondSame[i] == 0 || FirstEmpty[i] >= 3) &&//å¦‚æœacéƒ½ç©ºï¼Œåˆ™eä¸å¯ä»¥æ˜¯é»‘æ£‹
-						(FirstEmpty[i + 4] == 1 || FirstEmpty[i + 4] == 2 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 3))//å¦‚æœbdç©ºï¼Œåˆ™fä¸å¯ä»¥æ˜¯é»‘æ£‹
-						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true && oManager.KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)//abä¸æ˜¯ç¦æ‰‹
+					//Õâ¸öÊÇ½ûÊÖÀï×î²»ºÃÏëÇå³şµÄ£¬Ìõ¼şÀïÃæÓ¦¸ÃÓĞÖØ¸´µÄµØ·½£¬²»¹ıÕâÑùĞ´Ó¦¸Ã×îºÃÀí½â
+					if ((FirstEmpty[i] >= 1 && FirstEmpty[i + 4] >= 1) && //abÊÇ¿Õ°×
+						(FirstEmpty[i] >= 2 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] == 1 && SecondDiff[i] >= 1 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] >= 2 && FirstEmpty[i + 4] == 1 && SecondDiff[i + 4] >= 2) &&//cd²»ÄÜÊÇºÚÆå£¬Ò²²»ÄÜÍ¬Ê±ÊÇ°×É«
+						(FirstEmpty[i] == 1 || FirstEmpty[i] == 2 && SecondSame[i] == 0 || FirstEmpty[i] >= 3) &&//Èç¹ûac¶¼¿Õ£¬Ôòe²»¿ÉÒÔÊÇºÚÆå
+						(FirstEmpty[i + 4] == 1 || FirstEmpty[i + 4] == 2 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 3))//Èç¹ûbd¿Õ£¬Ôòf²»¿ÉÒÔÊÇºÚÆå
+						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true && oManager.KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)//ab²»ÊÇ½ûÊÖ
 							dthreecount++;
 				}
 
-				else if (FirstSame[i] + FirstSame[i + 4] == 1)//äºŒè¿ï¼Œå¯èƒ½å½¢æˆå†²å››å’Œæ´»ä¸‰
+				else if (FirstSame[i] + FirstSame[i + 4] == 1)//¶şÁ¬£¬¿ÉÄÜĞÎ³É³åËÄºÍ»îÈı
 				{
-					//å†²å››æ£€æŸ¥
+					//³åËÄ¼ì²é
 					if (FirstEmpty[i] == 1 && SecondSame[i] == 2)
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 							cfourcount++;
@@ -221,25 +221,25 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 							cfourcount++;
 
-					//æ´»ä¸‰æ£€æŸ¥
+					//»îÈı¼ì²é
 					//   bmXXaXnc
-					//æ³¨æ„ X_XX_X ä¸æ˜¯æ´»ä¸‰ï¼
-					//ç„¶è€Œ X_XXX_X å››å››ç¦æ‰‹ï¼
-					if ((FirstEmpty[i] == 1 && SecondSame[i] == 1) && //aç‚¹æ˜¯ç©ºç™½
-						(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//nç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œcç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
-						(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//mç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
+					//×¢Òâ X_XX_X ²»ÊÇ»îÈı£¡
+					//È»¶ø X_XXX_X ËÄËÄ½ûÊÖ£¡
+					if ((FirstEmpty[i] == 1 && SecondSame[i] == 1) && //aµãÊÇ¿Õ°×
+						(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//nµã±ØĞëÊÇ¿Õ°×£¬cµã²»ÄÜÊÇºÚÆå
+						(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//mµã±ØĞëÊÇ¿Õ°×£¬bµã²»ÄÜÊÇºÚÆå
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 							sthreecount++;
-					if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 1) && //aç‚¹æ˜¯ç©ºç™½
-						(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//nç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œcç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
-						(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//mç‚¹å¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸èƒ½æ˜¯é»‘æ£‹
+					if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 1) && //aµãÊÇ¿Õ°×
+						(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//nµã±ØĞëÊÇ¿Õ°×£¬cµã²»ÄÜÊÇºÚÆå
+						(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//mµã±ØĞëÊÇ¿Õ°×£¬bµã²»ÄÜÊÇºÚÆå
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 							sthreecount++;
 				}
 
-				else if (FirstSame[i] + FirstSame[i + 4] == 2 == 0)//å•ç‹¬ä¸€å­ï¼Œå¯èƒ½ä¼šå½¢æˆå†²å››å’Œæ´»ä¸‰
+				else if (FirstSame[i] + FirstSame[i + 4] == 2 == 0)//µ¥¶ÀÒ»×Ó£¬¿ÉÄÜ»áĞÎ³É³åËÄºÍ»îÈı
 				{
-					//å†²å››æ£€æŸ¥
+					//³åËÄ¼ì²é
 					if (FirstEmpty[i] == 1 && SecondSame[i] == 3)
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 							cfourcount++;
@@ -247,33 +247,33 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 							cfourcount++;
 
-					//æ´»ä¸‰æ£€æŸ¥
+					//»îÈı¼ì²é
 					//   bmXXaXnc
-					if ((FirstEmpty[i] == 1 && SecondSame[i] == 2) &&//aç‚¹æ˜¯ç©ºç™½
-						(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//må¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸æ˜¯é»‘å­
-						(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//nå¿…é¡»æ˜¯ç©ºç™½ï¼Œcä¸æ˜¯é»‘æ£‹
+					if ((FirstEmpty[i] == 1 && SecondSame[i] == 2) &&//aµãÊÇ¿Õ°×
+						(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//m±ØĞëÊÇ¿Õ°×£¬bµã²»ÊÇºÚ×Ó
+						(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//n±ØĞëÊÇ¿Õ°×£¬c²»ÊÇºÚÆå
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i], i) == true)
 							sthreecount++;
-					if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 2) &&//aç‚¹æ˜¯ç©ºç™½
-						(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//må¿…é¡»æ˜¯ç©ºç™½ï¼Œbç‚¹ä¸æ˜¯é»‘å­
-						(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//nå¿…é¡»æ˜¯ç©ºç™½ï¼Œcä¸æ˜¯é»‘æ£‹
+					if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 2) &&//aµãÊÇ¿Õ°×
+						(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//m±ØĞëÊÇ¿Õ°×£¬bµã²»ÊÇºÚ×Ó
+						(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//n±ØĞëÊÇ¿Õ°×£¬c²»ÊÇºÚÆå
 						if (oManager.KeyPointCheck(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
 							sthreecount++;
 				}
 			}
-			int adjsamemax = 0;//ä¸€åœˆç›¸é‚»åŒé¢œè‰²æœ€å¤§å€¼
+			int adjsamemax = 0;//Ò»È¦ÏàÁÚÍ¬ÑÕÉ«×î´óÖµ
 			for (i = 0; i < 4; i++)
 			{
 				if (FirstSame[i] + FirstSame[i + 4] > adjsamemax)
 					adjsamemax = FirstSame[i] + FirstSame[i + 4];
 			}
-			if (ColorNow == BLACK)//æœ‰ç¦æ‰‹
+			if (ColorNow == BLACK)//ÓĞ½ûÊÖ
 			{
 				if (adjsamemax == 0)
 					aChart[x][y] = 1;
 				if (adjsamemax == 1)
 					aChart[x][y] = 10;
-				if (x == 7 && y == 7)//è¿™ä¸ªä½ç½®å¦‚æœæ²¡äººä¸‹ï¼Œåœ¨æ²¡æœ‰æ›´ä¼˜çš„é€‰æ‹©ä¸‹ï¼Œç”µè„‘å°±ä¼šä¸‹åœ¨è¿™é‡Œ
+				if (x == 7 && y == 7)//Õâ¸öÎ»ÖÃÈç¹ûÃ»ÈËÏÂ£¬ÔÚÃ»ÓĞ¸üÓÅµÄÑ¡ÔñÏÂ£¬µçÄÔ¾Í»áÏÂÔÚÕâÀï
 					aChart[x][y] = 15;
 				if (adjsamemax == 2)
 					aChart[x][y] = 100;
@@ -283,18 +283,18 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 					aChart[x][y] = 1000;
 				if (hfourcount > 0 || hfourcount + cfourcount == 1 && sthreecount + dthreecount == 1)
 					aChart[x][y] = 10000;
-				if (longcount > 0 || hfourcount + cfourcount > 1 || sthreecount + dthreecount > 1)//ç¦æ‰‹
+				if (longcount > 0 || hfourcount + cfourcount > 1 || sthreecount + dthreecount > 1)//½ûÊÖ
 					aChart[x][y] = 0;
-				if (fivecount > 0)//äº”è¿ä¸ºå¤§
+				if (fivecount > 0)//ÎåÁ¬Îª´ó
 					aChart[x][y] = 100000;
 			}
-			else if (ColorNow == WHITE)//æ²¡æœ‰ç¦æ‰‹
+			else if (ColorNow == WHITE)//Ã»ÓĞ½ûÊÖ
 			{
 				if (adjsamemax == 0)
 					aChart[x][y] = 1;
 				if (adjsamemax == 1)
 					aChart[x][y] = 10;
-				if (x == 7 && y == 7)//è¿™ä¸ªä½ç½®å¦‚æœæ²¡äººä¸‹ï¼Œåœ¨æ²¡æœ‰æ›´ä¼˜çš„é€‰æ‹©ä¸‹ï¼Œç”µè„‘å°±ä¼šä¸‹åœ¨è¿™é‡Œ
+				if (x == 7 && y == 7)//Õâ¸öÎ»ÖÃÈç¹ûÃ»ÈËÏÂ£¬ÔÚÃ»ÓĞ¸üÓÅµÄÑ¡ÔñÏÂ£¬µçÄÔ¾Í»áÏÂÔÚÕâÀï
 					aChart[x][y] = 15;
 				if (adjsamemax == 2)
 					aChart[x][y] = 100;
@@ -307,7 +307,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 				if (fivecount > 0 || longcount > 0)
 					aChart[x][y] = 100000;
 			}
-			oBoard.SetAtTable(x, y, EMPTY);//æŠŠä¹‹å‰å‡è®¾æ”¾é‡Œçš„æ£‹æ‹¿å‡ºæ¥
+			oBoard.SetAtTable(x, y, EMPTY);//°ÑÖ®Ç°¼ÙÉè·ÅÀïµÄÆåÄÃ³öÀ´
 		}
 	}
 }
@@ -315,7 +315,7 @@ void cAI::RefreshChart(cBoard oBoard, int PlayerColor, int type)
 int cAI::SearchForBestPosition()
 {
 	int i, j;
-	int maxnum, x, y;//æœ€å¤§å€¼å’Œåæ ‡
+	int maxnum, x, y;//×î´óÖµºÍ×ø±ê
 	double RandomNumber;
 	maxnum = 0;
 	srand(unsigned(time(0)));
@@ -332,14 +332,14 @@ int cAI::SearchForBestPosition()
 			else if (AddChart[i][j] == maxnum)
 			{
 				RandomNumber = (double)rand() / (RAND_MAX);
-				if (RandomNumber < 0.15)//ä¸‹æ£‹çµæ´»ä¸€ç‚¹
+				if (RandomNumber < 0.15)//ÏÂÆåÁé»îÒ»µã
 				{
 					x = i;
 					y = j;
 				}
 			}
 		}
-	if (maxnum == 0)//æ²¡æœ‰åœ°æ–¹å¯ä»¥ä¸‹äº†
+	if (maxnum == 0)//Ã»ÓĞµØ·½¿ÉÒÔÏÂÁË
 		return -1;
 	row = x;
 	column = y;

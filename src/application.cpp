@@ -3,24 +3,20 @@
 #include "cRole.h"
 #include "macro.h"
 
-
 int main()
 {
-	#ifdef _WIN32
-    system("chcp 65001");// å‘½ä»¤è¡Œç¼–ç æ”¹ä¸ºutf-8
-    #endif
 
-	/*æµ‹è¯•æ–‡ä»¶,testfileé‡Œçš„å‰å››å¥æ”¾åˆ°å…¨å±€å°±å¯ä»¥ç”¨äº†
+	/*²âÊÔÎÄ¼ş,testfileÀïµÄÇ°ËÄ¾ä·Åµ½È«¾Ö¾Í¿ÉÒÔÓÃÁË
 	void test();
 	test();*/
 
-	//ä¸»ç¨‹åºéƒ¨åˆ†
+	//Ö÷³ÌĞò²¿·Ö
 	cManager oManager;
 	cBoard oBoard;
 
 	oManager.ModeChoice();
 
-	while (oManager.Gaming(oBoard) == 1)//å†æ¥ä¸€ç›˜
+	while (oManager.Gaming(oBoard) == 1)//ÔÙÀ´Ò»ÅÌ
 	{
 		oBoard.SetToZero();
 		oManager.ModeChoice();

@@ -22,14 +22,14 @@ cBoard::cBoard()
 void cBoard::RefreshScreen(int iPositioni, int iPosintionj)
 {
 	int i, j;
-	//å‘½ä»¤è¡Œæ¸…å±
+	//ÃüÁîĞĞÇåÆÁ
 	#ifdef _WIN32
     system("cls");
     #elif defined __APPLE__
     system("clear");
     #endif
 
-	cout << "              äº”å­æ£‹  Made By QH" << endl;
+	cout << "              Îå×ÓÆå  Made By QH" << endl;
 	cout << "=================================================" << endl;
 	for (i = 0; i<15; i++)
 	{
@@ -41,31 +41,31 @@ void cBoard::RefreshScreen(int iPositioni, int iPosintionj)
 		for (j = 0; j<15; j++)
 		{
 			if (aTable[i][j] == BLACK && !(i == iPositioni && j == iPosintionj))
-				cout << "â—";
+				cout << "¡ñ";
 			else if (aTable[i][j] == BLACK && i == iPositioni && j == iPosintionj)
-				cout << "â–²";
+				cout << "¡ø";
 			else if (aTable[i][j] == WHITE && !(i == iPositioni && j == iPosintionj))
-				cout << "â—‹";
+				cout << "¡ğ";
 			else if (aTable[i][j] == WHITE && i == iPositioni && j == iPosintionj)
-				cout << "â–³";
+				cout << "¡÷";
 			else if (i == 0 && j == 0)
-				cout << "â”";
+				cout << "©³";
 			else if (i == 0 && j == 14)
-				cout << "â”“";
+				cout << "©·";
 			else if (i == 0)
-				cout << "â”³";
+				cout << "©×";
 			else if (i == 14 && j == 0)
-				cout << "â”—";
+				cout << "©»";
 			else if (i == 14 && j == 14)
-				cout << "â”›";
+				cout << "©¿";
 			else if (i == 14)
-				cout << "â”»";
+				cout << "©ß";
 			else if (j == 0)
-				cout << "â”£";
+				cout << "©Ç";
 			else if (j == 14)
-				cout << "â”«";
+				cout << "©Ï";
 			else
-				cout << "â•‹";
+				cout << "©ï";
 
 		}
 		cout << endl;
@@ -75,7 +75,7 @@ void cBoard::RefreshScreen(int iPositioni, int iPosintionj)
 	cout << "=================================================" << endl;
 }
 
-//åˆ¤æ–­è¯¥ä½ç½®æœ‰æ— æ£‹å­
+//ÅĞ¶Ï¸ÃÎ»ÖÃÓĞÎŞÆå×Ó
 int cBoard::WhetherEmpty(int i, int j)
 {
 	if (aTable[i][j] == EMPTY)
