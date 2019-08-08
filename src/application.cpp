@@ -1,7 +1,4 @@
-#include "cBoard.h"
-#include "cManager.h"
-#include "cRole.h"
-#include "macro.h"
+#include "cGame.h"
 
 int main()
 {
@@ -11,16 +8,14 @@ int main()
 	test();*/
 
 	//主程序部分
-	cManager oManager;
-	cBoard oBoard;
+	cGame oGame;
 
-	oManager.ModeChoice();
-
-	while (oManager.Gaming(oBoard) == 1)//再来一盘
-	{
-		oBoard.SetToZero();
-		oManager.ModeChoice();
-	}
+	// while (oGame.Gaming(oBoard) == 1)//再来一盘
+	// {
+	// 	oBoard.SetToZero();
+	// 	oGame.ModeChoice();
+	// }
+	cout << "hello world!" << endl;
 
 	return 0;
 }

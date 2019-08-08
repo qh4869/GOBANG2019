@@ -1,9 +1,8 @@
 #pragma once
-#include "cBoard.h"
-#include "cManager.h"
 #include "macro.h"
 #include <iostream>
 #include <ctime>
+#include "cBoard.h"
 #include <cstdlib>
 #include <math.h>
 //角色类派生人类和AI类
@@ -18,7 +17,7 @@ public:
 	int GetAtRow();
 	int GetAtColumn();
 };
- 
+
 class cAI : public cRole
 {
 protected:
@@ -28,7 +27,8 @@ protected:
 
 public:
 	cAI();
-	void RefreshChart(cBoard, int, int);
+	void AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
+		bool(*KeyPoint)(cBoard, const int, const int, int, int));
 	int SearchForBestPosition();
 	void SetBothChartsZero(int, int);
 };
