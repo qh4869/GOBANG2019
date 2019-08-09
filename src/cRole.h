@@ -4,7 +4,7 @@
 #include <ctime>
 #include "cBoard.h"
 #include <cstdlib>
-#include <math.h>
+#include <cmath>
 #include <cstring>
 //角色类派生人类和AI类
 //人类派生出与电脑对决的玩家0类、互相PK的玩家1类和玩家2类

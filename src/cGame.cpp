@@ -199,12 +199,10 @@ int cGame::ShowResult()
 		cout << "平局" << endl;
 	}
 	char again;
-	char c;
 	cout << "想要再来一盘吗？(Y/N)" << endl;
 	again = cin.get();
-	do {
-		c = cin.get();
-	} while (c != '\n');
+	cin.clear();
+	cin.sync();
 	if (again == 'Y' || again == 'y')
 		return 1;
 	else
