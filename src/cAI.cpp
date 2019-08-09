@@ -350,3 +350,10 @@ void cAI::SetBothChartsZero(int x, int y)
 	AIChart[x][y] = 0;
 	PlayerChart[x][y] = 0;
 }
+
+void cAI::SetAtPosition(cBoard oBoard, int PlayerColor)
+{
+	AIAlgorithm(oBoard, PlayerColor, AI);
+	AIAlgorithm(oBoard, PlayerColor, PLAYER);
+	SearchForBestPosition();// 暂时没有考虑棋盘满的情况
+}

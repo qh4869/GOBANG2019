@@ -8,14 +8,12 @@ int main()
 	test();*/
 
 	//主程序部分
-	cGame oGame;
-
-	// while (oGame.Gaming(oBoard) == 1)//再来一盘
-	// {
-	// 	oBoard.SetToZero();
-	// 	oGame.ModeChoice();
-	// }
-	cout << "hello world!" << endl;
+	bool WhetherAgain = false;
+	do{
+		cGame* pGame = new cGame;
+		WhetherAgain = pGame->Gaming();
+		delete pGame;
+	}while(WhetherAgain);
 
 	return 0;
 }

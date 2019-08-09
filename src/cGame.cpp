@@ -114,83 +114,27 @@ cGame::~cGame()
 int cGame::Gaming()
 {
 	oBoard.RefreshScreen();
-
-	if (GameMode == PLAYERVSPLAYER)
+	while (1)
 	{
-		cPlayer1 oPlayer1;
-		cPlayer2 oPlayer2;
-		while (1)
+		if (WhoNext == ROLE1)// PLAYER or PLAYER1
 		{
-			if (WhoNext == PLAYER1)
-			{
-				oPlayer1.SetAtPosition();
-				while (oBoard.WhetherEmpty(oPlayer1.GetAtRow(), oPlayer1.GetAtColumn()) == NEMPTY)
-				{
-					cout << "这里已经有棋子了，";
-					oPlayer1.SetAtPosition();
-				}
-				oBoard.SetAtTable(oPlayer1.GetAtRow(), oPlayer1.GetAtColumn(), PlayerColor);
-				oBoard.RefreshScreen(oPlayer1.GetAtRow(), oPlayer1.GetAtColumn());
-				fnExchange();//交换下一次下棋的角色
-				result = oBoard.referee(oPlayer1.GetAtRow(), oPlayer1.GetAtColumn());
-				if (result)
-					break;
-
-			}
-			else if (WhoNext == PLAYER2)
-			{
-				oPlayer2.SetAtPosition();
-				while (oBoard.WhetherEmpty(oPlayer2.GetAtRow(), oPlayer2.GetAtColumn()) == NEMPTY)
-				{
-					cout << "这里已经有棋子了，";
-					oPlayer2.SetAtPosition();
-				}
-				oBoard.SetAtTable(oPlayer2.GetAtRow(), oPlayer2.GetAtColumn(), PlayerColor % 2 + 1);
-				oBoard.RefreshScreen(oPlayer2.GetAtRow(), oPlayer2.GetAtColumn());
-				fnExchange();
-				result = oBoard.referee(oPlayer2.GetAtRow(), oPlayer2.GetAtColumn());
-				if (result)
-					break;
-			}
+			pRole1->SetAtPosition(oBoard, PlayerColor);
+			oBoard.SetAtTable(pRole1->GetAtRow(), pRole1->GetAtColumn(), PlayerColor);
+			oBoard.RefreshScreen(pRole1->GetAtRow(), pRole1->GetAtColumn());
+			fnExchange();
+			result = oBoard.referee(pRole1->GetAtRow(), pRole1->GetAtColumn());
+			if (result)
+				break;
 		}
-	}
-	else if (GameMode == PLAYERVSAI)
-	{
-		cPlayer0 oPlayer0;
-		cAI oAI;
-		while (1)
+		else if (WhoNext == ROLE2)// AI or PLAYER2
 		{
-			if (WhoNext == PLAYER)
-			{
-				oPlayer0.SetAtPosition();
-				while (oBoard.WhetherEmpty(oPlayer0.GetAtRow(), oPlayer0.GetAtColumn()) == NEMPTY)
-				{
-					cout << "这里已经有棋子了，";
-					oPlayer0.SetAtPosition();
-				}
-				oBoard.SetAtTable(oPlayer0.GetAtRow(), oPlayer0.GetAtColumn(), PlayerColor);
-				oBoard.RefreshScreen(oPlayer0.GetAtRow(), oPlayer0.GetAtColumn());
-				fnExchange();
-				result = oBoard.referee(oPlayer0.GetAtRow(), oPlayer0.GetAtColumn());
-				if (result)
-					break;
-			}
-			else if (WhoNext == AI)
-			{
-				oAI.AIAlgorithm(oBoard, PlayerColor, AI);
-				oAI.AIAlgorithm(oBoard, PlayerColor, PLAYER);
-				if (oAI.SearchForBestPosition() == -1)//没有地方可以下棋了，和棋
-				{
-					result = EQUAL;
-					break;
-				}
-				oBoard.SetAtTable(oAI.GetAtRow(), oAI.GetAtColumn(), PlayerColor % 2 + 1);
-				oBoard.RefreshScreen(oAI.GetAtRow(), oAI.GetAtColumn());
-				fnExchange();
-				result = oBoard.referee(oAI.GetAtRow(), oAI.GetAtColumn());
-				if (result)
-					break;
-			}
+			pRole2->SetAtPosition(oBoard, PlayerColor);
+			oBoard.SetAtTable(pRole2->GetAtRow(), pRole2->GetAtColumn(), PlayerColor % 2 + 1);
+			oBoard.RefreshScreen(pRole2->GetAtRow(), pRole2->GetAtColumn());
+			fnExchange();
+			result = oBoard.referee(pRole2->GetAtRow(), pRole2->GetAtColumn());
+			if (result)
+				break;
 		}
 	}
 	return ShowResult();

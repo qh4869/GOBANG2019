@@ -2,98 +2,20 @@
 
 using namespace std;
 
-//MSDN上的原话
-//vs2015用sync，输入流缓冲区清除不掉
-//https://blogs.msdn.microsoft.com/c/2016/04/15/visual-c-2015-update-2-bug-%E4%BF%AE%E5%A4%8D/
-//cin.sync() and fflush(stdin) do not work with Visual Studio 2015
-void cPlayer0::SetFromScreen()
+void cPerson::CmdInput()
 {
-	char c;
-	cout << "请输入下棋的位置:";
-	//cin.sync();//清除缓冲区
-	cin.clear();//清除标志位
-	while (!(cin.getline(PositionInput, 3)))
+	while (1)
 	{
-		cout << "输入错误，请输入下棋的位置:";
-		//cin.sync();//清除缓冲区
-		cin.clear();//清除标志位
-		do {
-			c = cin.get();
-		} while (c != '\n');
-		
-	}
-	while (!(((PositionInput[0] >= '0'&&PositionInput[0] <= '9') || (PositionInput[0] >= 'a'&&PositionInput[0] <= 'e') || (PositionInput[0] >= 'A'&&PositionInput[0] <= 'E')) && ((PositionInput[1] >= 'a'&&PositionInput[1] <= 'o') || (PositionInput[1] >= 'A'&&PositionInput[1] <= 'O'))))
-	{
-		cout << "输入错误，请输入下棋的位置:";
 		while (!(cin.getline(PositionInput, 3)))
 		{
 			cout << "输入错误，请输入下棋的位置:";
-			//cin.sync();//清除缓冲区
 			cin.clear();//清除标志位
-			do {
-				c = cin.get();
-			} while (c != '\n');
+			cin.sync();//清除缓冲区
 		}
-	}
-}
-
-void cPlayer1::SetFromScreen()
-{
-	char c;
-	cout << "请玩家1输入下棋的位置:";
-	//cin.sync();//清除缓冲区
-	cin.clear();//清除标志位
-	while (!(cin.getline(PositionInput, 3)))
-	{
-		cout << "输入错误，请玩家1输入下棋的位置:";
-		//cin.sync();//清除缓冲区
-		cin.clear();//清除标志位
-		do {
-			c = cin.get();
-		} while (c != '\n');
-	}
-	while (!(((PositionInput[0] >= '0'&&PositionInput[0] <= '9') || (PositionInput[0] >= 'a'&&PositionInput[0] <= 'e') || (PositionInput[0] >= 'A'&&PositionInput[0] <= 'E')) && ((PositionInput[1] >= 'a'&&PositionInput[1] <= 'o') || (PositionInput[1] >= 'A'&&PositionInput[1] <= 'O'))))
-	{
-		cout << "输入错误，请玩家1输入下棋的位置";
-		while (!(cin.getline(PositionInput, 3)))
-		{
-			cout << "输入错误，请玩家1输入下棋的位置:";
-			//cin.sync();//清除缓冲区
-			cin.clear();//清除标志位
-			do {
-				c = cin.get();
-			} while (c != '\n');
-		}
-	}
-}
-
-void cPlayer2::SetFromScreen()
-{
-	char c;
-	cout << "请玩家2输入下棋的位置:";
-	//cin.sync();//清除缓冲区
-	cin.clear();//清除标志位
-	while (!(cin.getline(PositionInput, 3)))
-	{
-		cout << "输入错误，请玩家2输入下棋的位置:";
-		//cin.sync();//清除缓冲区
-		cin.clear();//清除标志位
-		do {
-			c = cin.get();
-		} while (c != '\n');
-	}
-	while (!(((PositionInput[0] >= '0'&&PositionInput[0] <= '9') || (PositionInput[0] >= 'a'&&PositionInput[0] <= 'e') || (PositionInput[0] >= 'A'&&PositionInput[0] <= 'E')) && ((PositionInput[1] >= 'a'&&PositionInput[1] <= 'o') || (PositionInput[1] >= 'A'&&PositionInput[1] <= 'O'))))
-	{
-		cout << "输入错误，请玩家2输入下棋的位置";
-		while (!(cin.getline(PositionInput, 3)))
-		{
-			cout << "输入错误，请玩家2输入下棋的位置:";
-			//cin.sync();//清除缓冲区
-			cin.clear();//清除标志位
-			do {
-				c = cin.get();
-			} while (c != '\n');
-		}
+		if (((PositionInput[0] >= '0'&&PositionInput[0] <= '9') || (PositionInput[0] >= 'a'&&PositionInput[0] <= 'e') || (PositionInput[0] >= 'A'&&PositionInput[0] <= 'E')) && ((PositionInput[1] >= 'a'&&PositionInput[1] <= 'o') || (PositionInput[1] >= 'A'&&PositionInput[1] <= 'O')))
+			break;
+		else
+			cout << "输入不符合棋盘坐标，请重新输入下棋的位置:";
 	}
 }
 
@@ -112,10 +34,36 @@ inline void cPerson::Char2Position()
 		column = PositionInput[1] - 'A';
 }
 
-void cPerson::SetAtPosition()
+void cPlayer0::SetFromScreen()
 {
-	SetFromScreen();
+	cout << "请输入下棋的位置:";
+	CmdInput();
 	Char2Position();
+}
+
+void cPlayer1::SetFromScreen()
+{
+	cout << "请玩家1输入下棋的位置:";
+	CmdInput();
+	Char2Position();
+}
+
+void cPlayer2::SetFromScreen()
+{
+	cout << "请玩家2输入下棋的位置:";
+	CmdInput();
+	Char2Position();
+}
+
+void cPerson::SetAtPosition(cBoard oBoard, int PlayerColor)
+{
+	while (1){
+		SetFromScreen();
+		if (oBoard.WhetherEmpty(GetAtRow(), GetAtColumn()) == EMPTY)
+			break;
+		else
+			cout << "这里已经有棋子了，";
+	}
 }
 
 int cRole::GetAtRow()
