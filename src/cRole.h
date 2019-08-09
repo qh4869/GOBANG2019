@@ -27,8 +27,7 @@ protected:
 
 public:
 	cAI();
-	void AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
-		bool(*KeyPoint)(cBoard, const int, const int, int, int));
+	void AIAlgorithm(cBoard oBoard, int PlayerColor, int type);
 	int SearchForBestPosition();
 	void SetBothChartsZero(int, int);
 };

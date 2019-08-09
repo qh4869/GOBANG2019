@@ -18,6 +18,7 @@ private:
 
 public:
 	cGame();
+	~cGame();
 	void SetAtGameMode(int);
 	int GetATGameMode();
 	void WhoFirst(int);
@@ -26,8 +27,6 @@ public:
 	void SetAtPlayerColor(int);
 	int GetAtPlayerColor();
 	void ModeChoice();
-	int referee(cBoard, const int, const int);//裁判函数
-	bool KeyPointCheck(cBoard oBoard, const int x, const int y, int adjsame, int direction);
 	int Gaming();//游戏对战中
 	int ShowResult();//输出游戏结果，并询问是否继续下一盘1代表继续 0 代表不继续
 };

@@ -12,8 +12,7 @@ cAI::cAI()
 }
 
 
-void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
-	bool(*KeyPoint)(cBoard, const int, const int, int, int))
+void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type)
 {
 	int ColorNow;
 	if (PlayerColor == BLACK && type == PLAYER || PlayerColor == WHITE && type == AI)//黑棋棋型表
@@ -31,7 +30,6 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 		aChart = PlayerChart;
 		ColorNow = PlayerColor;
 	}
-	//cGame oManager;//只是用一下裁判函数
 
 	int x, y;
 
@@ -176,13 +174,13 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 					bool isFour2 = false;
 					if (FirstEmpty[i] > 0)
 					{
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i) == true)//满足关键点不禁手的条件
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i) == true)//满足关键点不禁手的条件
 							isFour1 = true;
 					}
 
 					if (FirstEmpty[i + 4] > 0)
 					{
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i) == true)
 							isFour2 = true;
 					}
 					if (isFour1 == true && isFour2 == true)
@@ -195,10 +193,10 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 				{
 					//冲四检查
 					if (FirstEmpty[i] == 1 && SecondSame[i] == 1)
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i))
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i))
 							cfourcount++;
 					if (FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 1)
-						if (KeyPoint(oBoard, x, y, FirstSame[i + 4], i + 4))
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i + 4], i + 4))
 							cfourcount++;
 
 					//活三检查
@@ -208,7 +206,7 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 						(FirstEmpty[i] >= 2 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] == 1 && SecondDiff[i] >= 1 && FirstEmpty[i + 4] >= 2 || FirstEmpty[i] >= 2 && FirstEmpty[i + 4] == 1 && SecondDiff[i + 4] >= 2) &&//cd不能是黑棋，也不能同时是白色
 						(FirstEmpty[i] == 1 || FirstEmpty[i] == 2 && SecondSame[i] == 0 || FirstEmpty[i] >= 3) &&//如果ac都空，则e不可以是黑棋
 						(FirstEmpty[i + 4] == 1 || FirstEmpty[i + 4] == 2 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 3))//如果bd空，则f不可以是黑棋
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i) == true && KeyPoint(oBoard, x, y, FirstSame[i + 4], i + 4) == true)//ab不是禁手
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i) == true && oBoard.KeyPointCheck(x, y, FirstSame[i + 4], i + 4) == true)//ab不是禁手
 							dthreecount++;
 				}
 
@@ -216,10 +214,10 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 				{
 					//冲四检查
 					if (FirstEmpty[i] == 1 && SecondSame[i] == 2)
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i) == true)
 							cfourcount++;
 					if (FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 2)
-						if (KeyPoint(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i + 4], i + 4) == true)
 							cfourcount++;
 
 					//活三检查
@@ -229,12 +227,12 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 					if ((FirstEmpty[i] == 1 && SecondSame[i] == 1) && //a点是空白
 						(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//n点必须是空白，c点不能是黑棋
 						(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//m点必须是空白，b点不能是黑棋
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i) == true)
 							sthreecount++;
 					if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 1) && //a点是空白
 						(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//n点必须是空白，c点不能是黑棋
 						(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//m点必须是空白，b点不能是黑棋
-						if (KeyPoint(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i + 4], i + 4) == true)
 							sthreecount++;
 				}
 
@@ -242,10 +240,10 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 				{
 					//冲四检查
 					if (FirstEmpty[i] == 1 && SecondSame[i] == 3)
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i) == true)
 							cfourcount++;
 					if (FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 3)
-						if (KeyPoint(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i + 4], i + 4) == true)
 							cfourcount++;
 
 					//活三检查
@@ -253,12 +251,12 @@ void cAI::AIAlgorithm(cBoard oBoard, int PlayerColor, int type, \
 					if ((FirstEmpty[i] == 1 && SecondSame[i] == 2) &&//a点是空白
 						(SecondEmpty[i] == 1 && ThirdSame[i] == 0 || SecondEmpty[i] >= 2) &&//m必须是空白，b点不是黑子
 						(FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 0 || FirstEmpty[i + 4] >= 2))//n必须是空白，c不是黑棋
-						if (KeyPoint(oBoard, x, y, FirstSame[i], i) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i], i) == true)
 							sthreecount++;
 					if ((FirstEmpty[i + 4] == 1 && SecondSame[i + 4] == 2) &&//a点是空白
 						(SecondEmpty[i + 4] == 1 && ThirdSame[i + 4] == 0 || SecondEmpty[i + 4] >= 2) &&//m必须是空白，b点不是黑子
 						(FirstEmpty[i] == 1 && SecondSame[i] == 0 || FirstEmpty[i] >= 2))//n必须是空白，c不是黑棋
-						if (KeyPoint(oBoard, x, y, FirstSame[i + 4], i + 4) == true)
+						if (oBoard.KeyPointCheck(x, y, FirstSame[i + 4], i + 4) == true)
 							sthreecount++;
 				}
 			}
